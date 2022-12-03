@@ -10,7 +10,6 @@ public class Check {
             intStr = sc.nextLine();
         }
         return Integer.parseInt(intStr);
-        // checkLOng method
     }
     public long checkLong(Scanner sc) {
         String longStr = sc.nextLine();
@@ -80,5 +79,13 @@ public class Check {
             name = sc.nextLine();
         }
         return name;
+    }
+    public static String checkAnswer (Scanner sc){
+        String answer = sc.nextLine();
+        while (!(answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("no"))){
+            System.out.println("Your input is incorrect! Please enter YES or NO:");
+            answer = sc.nextLine();
+        }
+        return answer;
     }
 }
