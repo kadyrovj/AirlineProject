@@ -78,7 +78,7 @@ public class Check {
         while (!isAlphabetical(name)) {
             name = sc.nextLine();
         }
-        return name;
+        return name;//
     }
     public static String checkAnswer (Scanner sc){
         String answer = sc.nextLine();

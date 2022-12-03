@@ -31,5 +31,5 @@ public class DataBase {
             for (int i = 0; i < (cities.length) / 3; i++) {
                 System.out.printf("%-17s\t\t%-17s\t\t%-17s\n", cities[i], cities[i + 5], cities[i + 10]);
             }
-        }
+        }//
 }
