@@ -110,13 +110,21 @@ public class Check {
 
     public long checkCard(Scanner sc){
         long num = checkLong(sc);
-        while (String.valueOf(num).length()!=12){
+        while (String.valueOf(num).length()!=16){
             System.out.println("Incorrect input. Please enter the card number again:");
             num=checkLong(sc);
         }
         return num;
     }
-    //still need to test it
+
+    public int checkCvv(Scanner sc){
+        int num = checkInt(sc);
+        while (String.valueOf(num).length()!=3){
+            System.out.println("Incorrect input. Please enter the CVV again:");
+            num=checkInt(sc);
+        }
+        return num;
+    }
     public boolean isDateValid(String date)
     {
         try {
