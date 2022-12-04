@@ -25,30 +25,30 @@ public class Luggage {
         if (carryOn > 1) {
             if (carryOnWeight > 17) {
                 carryOnPrice = (carryOn * 40) + (carryOnWeight * 2);
+            } else {
+                carryOnPrice = carryOn * 40;
             }
-        } else {
-            carryOnPrice = carryOn * 40;
         }
         return carryOnPrice;
     }
 
 
-    public double getLuggage() {
-        if (luggage > 1) {
-            if (luggageWeight > 50) {
-                luggagePrice = (luggageWeight * 2) + (luggage * 100);
-            } else {
-                luggagePrice = luggageWeight * 2;
+        public double getLuggage () {
+            if (luggage > 1) {
+                if (luggageWeight > 50) {
+                    luggagePrice = (luggageWeight * 2) + (luggage * 100);
+                } else {
+                    luggagePrice = luggageWeight * 2;
+                }
             }
+            return luggagePrice;
         }
-        return luggagePrice;
+
+        public double getAdditionToTicketPrice () {
+
+            additionToTicketPrice = carryOnPrice + luggagePrice;
+
+            return additionToTicketPrice;
+        }
     }
-
-    public double getAdditionToTicketPrice() {
-
-        additionToTicketPrice = carryOnPrice + luggagePrice;
-
-        return additionToTicketPrice;
-    }
-}
 
