@@ -32,11 +32,10 @@ public class Jasur {
         this.email = sc.nextLine();
         System.out.println("Please enter traveller " + i +" phone number: ");
         this.phoneNumber = ch.checkLong(sc);
-        System.out.println("Please enter traveller " + i + " date of birth: ");
-        this.DOB = sc.nextLine();
+        System.out.println("Please enter traveller " + i + " date of birth (mm-dd-yyyy): ");
+        this.DOB = ch.checkDate(sc);
 
     }
-
     public void numOfTravellers(int num){
         for(int i=1; i<= num;i++){
             Airline(i);
@@ -44,10 +43,10 @@ public class Jasur {
     }
     public void paymentDetails(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter cardholder name: ");
+        System.out.println("Please enter cardholder's full name: ");
         this.cardHolderName = ch.checkName(sc);
         System.out.println("Please enter your card number: ");
-        this.cardNumber = ch.checkLong(sc);
+        this.cardNumber = ch.checkCard(sc);
         System.out.println("Please enter expiration month of the card: ");
         this.monthOfDate = ch.checkInt(sc);
         System.out.println("Please enter expiration year of the card: ");
