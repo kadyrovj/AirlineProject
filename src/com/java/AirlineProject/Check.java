@@ -81,4 +81,15 @@ public class Check {
         }
         return name;
     }
+    public  int checkIntLess15(Scanner sc){
+        String intStr = sc.nextLine();
+        while(!isInteger(intStr)){
+            intStr = sc.nextLine();
+        }
+        while(Integer.parseInt(intStr)<1 || Integer.parseInt(intStr)>15){
+            System.out.println("Please enter the number in range 1-15:");
+            intStr = sc.nextLine();
+        }
+        return Integer.parseInt(intStr);
+    }
 }
