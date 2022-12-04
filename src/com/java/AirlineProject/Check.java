@@ -144,5 +144,23 @@ public class Check {
         }
         return str;
     }
-
+    public boolean isShortDateValid(String date)
+    {
+        try {
+            DateFormat df = new SimpleDateFormat("MM/yyyy");
+            df.setLenient(false);
+            df.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+    public String checkExpirationDate(Scanner sc){
+        String str = sc.nextLine();
+        while(!isShortDateValid(str)){
+            System.out.println("Incorrect input. Please enter the date in format mm/yyyy");
+            str = sc.nextLine();
+        }
+        return str;
+    }
 }

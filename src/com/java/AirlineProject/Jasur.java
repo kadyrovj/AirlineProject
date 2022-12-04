@@ -17,24 +17,24 @@ public class Jasur {
 
     long phoneNumber;
     long cardNumber;
-    int monthOfDate;
-    int yearOfDate;
+    String expirationDate;
+    //int monthOfDate;
+    //int yearOfDate;
     int cvv;
     String cardHolderName;
 
     public void confirmPurchase(int i){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter YES if you confirm the purchase: ");
+        System.out.println("\nPlease enter YES if you confirm the purchase: ");
         String result = ch.checkAnswer(sc);
         if(result.equalsIgnoreCase("yes")){
-            System.out.println("Please fill out the next information:");
+            System.out.println("\n---Please fill out the next information---");
             numOfTravellers(i);
             paymentDetails();
-            System.out.println("Thank you for your purchase. Have a safe flight!");
+            System.out.println("\nThank you for your purchase. Have a safe flight!");
         }else {
-            System.out.println("Thank you for choosing JavengersAirlines. Good Luck!");
+            System.out.println("\nThank you for choosing JavengersAirlines. Good Luck!");
             System.exit(0);
-
         }
     }
     public void Airline(int i){
@@ -47,7 +47,6 @@ public class Jasur {
         this.email = sc.nextLine();
         System.out.println("Please enter traveller " + i +" phone number: ");
         this.phoneNumber = ch.checkLong(sc);
-        sc.nextLine();
         System.out.println("Please enter traveller " + i + " date of birth (mm-dd-yyyy): ");
         this.DOB = ch.checkDate(sc);
 
@@ -59,15 +58,17 @@ public class Jasur {
     }
     public void paymentDetails(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter cardholder's full name: ");
+        System.out.println("\nPlease enter cardholder's full name: ");
         this.cardHolderName = ch.checkName(sc);
         System.out.println("Please enter your card number: ");
         this.cardNumber = ch.checkCard(sc);
-        System.out.println("Please enter expiration month of the card: "); //find a checkDate for month and year
-        this.monthOfDate = ch.checkInt(sc);
-        System.out.println("Please enter expiration year of the card: ");
-        this.yearOfDate = ch.checkInt(sc);
-        System.out.println("Please enter CVV: "); //
+        //System.out.println("Please enter expiration month of the card: "); //find a checkDate for month and year
+        //this.monthOfDate = ch.checkInt(sc);
+        //System.out.println("Please enter expiration year of the card: ");
+        //this.yearOfDate = ch.checkInt(sc);
+        System.out.println("Please enter expiration date of the card: (mm/yyyy) ");
+        this.expirationDate = ch.checkExpirationDate(sc);
+        System.out.println("Please enter CVV: ");
         this.cvv = ch.checkCvv(sc);
     }
 }
