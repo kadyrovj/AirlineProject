@@ -1,7 +1,5 @@
 package com.java.AirlineProject;
-
 public class DataBase {
-        //didn't have connection, not sure if uploaded
         private String cities[] = {"1. New York City", "2. Chicago", "3. Charleston", "4. Las Vegas", "5. Seattle",
                 "6. San Francisco", "7. Washington DC", "8. New Orleans", "9. Palm Springs", "10. San Diego",
                 "11. Portland", "12. Orlando", "13. Honolulu", "14. Miami Beach", "15. Boston" };
@@ -31,5 +29,5 @@ public class DataBase {
             for (int i = 0; i < (cities.length) / 3; i++) {
                 System.out.printf("%-17s\t\t%-17s\t\t%-17s\n", cities[i], cities[i + 5], cities[i + 10]);
             }
-        }//
+        }
 }
