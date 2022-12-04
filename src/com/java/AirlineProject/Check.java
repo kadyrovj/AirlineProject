@@ -92,4 +92,13 @@ public class Check {
         }
         return Integer.parseInt(intStr);
     }
+    //checks if the entered answer is YES or NO
+    public  String checkAnswer (Scanner sc){
+        String answer = sc.nextLine();
+        while (!(answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("no"))){
+            System.out.println("Your input is incorrect! Please enter YES or NO:");
+            answer = sc.nextLine();
+        }
+        return answer;
+    }
 }
