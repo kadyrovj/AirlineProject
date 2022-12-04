@@ -101,7 +101,7 @@ public class Check {
     }
     public  int checkInt1or2(Scanner sc){
         int num = checkInt(sc);
-        while(num!=1 || num!=2){
+        while(num!=1 && num!=2){
             System.out.println("Incorrect input! Please enter 1 or 2:");
             num=checkInt(sc);
         }
