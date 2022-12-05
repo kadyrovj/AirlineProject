@@ -7,29 +7,26 @@ public class Gentian {
     // children aged 2-17,
     // infants(under 2)
     //The price of a ticket: adults - regular, children - 50% discount, infants - free
-
-
     public double numberOfTravelers(double price){
 
         Check ch = new Check();
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\nHow many adults are traveling?");
+        System.out.println("\nHow many adults are traveling?:");
         int adults = ch.checkInt(sc);
 
-        System.out.println("How many children are traveling?");
+        System.out.println("How many children are traveling? Ages 2 to 17:");
         int children = ch.checkInt(sc);
 
-        System.out.println("How many infants are traveling?");
+        System.out.println("How many infants are traveling? Younger than 2:");
         int infants = ch.checkInt(sc);
 
-        price = price + (adults * price) + (children * price * 0.5) + (infants * 0);
+        price = (adults * price) + (children * price * 0.5);
 
         System.out.println("The total price is $" + price);
 
         return price;
-
 
     }
 }
