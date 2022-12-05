@@ -54,4 +54,49 @@ public class Ramilya extends DataBase {
         }
     }
 
-}
+    //User story #4
+//          it's a round trip -> departing and returning dates.
+//          If it's a one-way trip -> departing date.
+////        If it's a multi-city trip -> departing and returning dates for all flights.
+////        (User should be able to input the dates only in chronological order)
+
+public  void checkDate () {
+        System.out.println("Thank you for choosing our Travel Agency. " );
+         String departDate, returnDate;
+
+         System.out.println("Please choose the below options: 1.One Way , 2.Round Trip, 3.Multi-City Trip");
+         Scanner sc = new Scanner(System.in);
+         int options = sc.nextInt();
+
+
+         switch(options) {
+
+         case 1:
+         System.out.println("Please enter your departing date");
+         departDate=sc.next();
+         break;
+         case 2:
+         System.out.println("Please enter your departing date");
+         departDate=sc.next();
+         System.out.println("Please enter your return date");
+         returnDate=sc.next();
+         break;
+         case 3:
+         System.out.println("Please enter your first city departing date");
+         departDate=sc.next();
+         System.out.println("Please enter your first city return date");
+         returnDate=sc.next();
+         System.out.println("Please enter your second city departing date");
+         departDate=sc.next();
+         System.out.println("Please enter your second city return date");
+         returnDate=sc.next();
+         break;
+
+        default:
+        System.out.println("Invalid entry please try again");
+        }
+
+        }
+
+        }
+
