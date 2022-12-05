@@ -6,7 +6,7 @@ public class Anastasiia {
     public void Info (String[] city, double price, String dateTicket, int NumbTrav, String ClassType, String TypeOfFly) {
         Check ch = new Check();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Do you want to see all information about your fly? Please enter YES or NO: ");
+        System.out.println("Do you want to see all information about your flight? Please enter YES or NO: ");
         String answer = ch.checkAnswer(sc);
 
         //
