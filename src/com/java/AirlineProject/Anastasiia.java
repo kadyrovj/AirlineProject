@@ -9,6 +9,7 @@ public class Anastasiia {
         System.out.println("Do you want to see all information about your fly? Please enter YES or NO: ");
         String answer = ch.checkAnswer(sc);
 
+        //
         if (answer.equalsIgnoreCase("Yes")) {
 
             System.out.println("************************************************************************");
