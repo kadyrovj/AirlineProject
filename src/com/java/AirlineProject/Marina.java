@@ -11,7 +11,7 @@ public class Marina {
 
     Scanner sc = new Scanner(System.in);
 
-    static void Welcome() {
+    public void Welcome() {
         System.out.println("\t\t\tWelcome to Javengers Airline");
         System.out.println("Please choose the type of trip: 1) one-way 2) round 3) multi-city");
 
@@ -23,13 +23,14 @@ public class Marina {
         if (input == 3) {
             numCities = numberOfCities();
         }
+        System.out.println(getTotalMiles(type));
 
-        System.out.println(type);
-        System.out.println(numCities);
+        //System.out.println(type);  // Not sure if these are needed
+        //System.out.println(numCities);
 
     }
 
-    static int reader() {
+    public int reader() {
         Scanner scanner = new Scanner(System.in);
         int inputNum = 0;
 
@@ -47,7 +48,7 @@ public class Marina {
         return inputNum;
     }
 
-    static String typeOfTrip(int input) {
+    public String typeOfTrip(int input) {
         String type = "";
 
         switch (input) {
@@ -65,7 +66,7 @@ public class Marina {
 
     }
 
-    static int numberOfCities() {
+    public int numberOfCities() {
         int numCities = 0;
         System.out.println("Enter number of destination cities");
         Scanner scanner = new Scanner(System.in);

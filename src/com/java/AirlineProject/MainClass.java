@@ -3,6 +3,8 @@ package com.java.AirlineProject;
 public class MainClass {
     public static void main(String[] args) {
         double totalPrice = 220;
+        Marina mr = new Marina();
+        //mr.Welcome();
         Jasur ar = new Jasur();
         Chimita fl = new Chimita();
         Gentian tr = new Gentian();
@@ -12,5 +14,6 @@ public class MainClass {
         //totalPrice = totalPrice+ lu.additionToTicketPrice; // added luggage price to the total price
         //totalPrice=fl.directOrConnectingFlight(totalPrice);
         //ar.confirmPurchase(2);
-    }
+   }
 }
+
