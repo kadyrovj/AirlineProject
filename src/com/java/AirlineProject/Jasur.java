@@ -45,7 +45,7 @@ public class Jasur {
         this.name = ch.checkName(sc);
         System.out.println("Please enter traveller " + i +" last name: ");
         this.lastName = ch.checkName(sc);
-        System.out.println("Please enter traveller " + i + " email: ");
+        System.out.println("Please enter traveller " + i + " email (example@gmail.com): ");
         this.email = sc.nextLine();
         System.out.println("Please enter traveller " + i +" phone number: ");
         this.phoneNumber = ch.checkLong(sc);
