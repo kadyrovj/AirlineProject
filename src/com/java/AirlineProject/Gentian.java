@@ -7,6 +7,7 @@ public class Gentian {
     // children aged 2-17,
     // infants(under 2)
     //The price of a ticket: adults - regular, children - 50% discount, infants - free
+    int numOfTravellers;
     public double numberOfTravelers(double price){
 
         Check ch = new Check();
@@ -21,6 +22,8 @@ public class Gentian {
 
         System.out.println("How many infants are traveling? Younger than 2:");
         int infants = ch.checkInt(sc);
+
+        numOfTravellers=adults+children;
 
         price = (adults * price) + (children * price * 0.5);
 

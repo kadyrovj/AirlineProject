@@ -2,18 +2,31 @@ package com.java.AirlineProject;
 
 public class MainClass {
     public static void main(String[] args) {
-        double totalPrice = 220;
+        double totalPrice = 0;
         Marina mr = new Marina();
-        //mr.Welcome();
-        Jasur ar = new Jasur();
-        Chimita fl = new Chimita();
+        Ramilya rm = new Ramilya();
         Gentian tr = new Gentian();
-        Luggage lu = new Luggage(); // luggage class where I calculated the luggage price. Igor
-        //totalPrice=lu.getBaggage(totalPrice);
+        //Karina kr  = new Karina();
+        Chimita fl = new Chimita();
+        Igor gr = new Igor();
+        Anastasiia ns = new Anastasiia();
+        Jasur ar = new Jasur();
+
+        mr.Welcome();
+        totalPrice=rm.getMinimumPrice();
+        System.out.println("The minimum price of the trip = $"+totalPrice);
+        if(!rm.getProceed()){
+            System.exit(0);
+        }
+        int options = mr.inputTypeOfFlight;
+        rm.checkDate(options);
+        totalPrice=tr.numberOfTravelers(totalPrice);
+        //
+        totalPrice = fl.directOrConnectingFlight(totalPrice);
+        totalPrice = gr.getBaggage(totalPrice);
         System.out.println(totalPrice);
-        //totalPrice = totalPrice+ lu.additionToTicketPrice; // added luggage price to the total price
-        //totalPrice=fl.directOrConnectingFlight(totalPrice);
-        //ar.confirmPurchase(2);
+        //ns.Info();
+        ar.confirmPurchase(tr.numOfTravellers);
    }
 }
 

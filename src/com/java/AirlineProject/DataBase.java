@@ -1,6 +1,7 @@
 package com.java.AirlineProject;
 
 public class DataBase {
+    //1-3-8-9
     private String cities[] = {"1. New York City", "2. Chicago", "3. Charleston", "4. Las Vegas", "5. Seattle",
             "6. San Francisco", "7. Washington DC", "8. New Orleans", "9. Palm Springs", "10. San Diego",
             "11. Portland", "12. Orlando", "13. Honolulu", "14. Miami Beach", "15. Boston"};
