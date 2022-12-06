@@ -1,8 +1,10 @@
 package com.java.AirlineProject;
 
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Ramilya extends DataBase {
     Scanner sc = new Scanner(System.in);
@@ -57,10 +59,12 @@ public class Ramilya extends DataBase {
 ////        If it's a multi-city trip -> departing and returning dates for all flights.
 ////        (User should be able to input the dates only in chronological order)
 
-    public void checkDate(int num) {
+    public void checkDate() {
         System.out.println("\nThank you for choosing our Travel Agency. ");
         String departDate, returnDate;
-        switch (num) {//
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.ENGLISH);
+        List<LocalDate> totalDates = new ArrayList<>();
+        switch (mr.inputTypeOfFlight) {
             case 1:
                 System.out.println("Please enter your departing date (mm-dd-yyyy)");
                 departDate = ch.checkDate(sc);
@@ -70,20 +74,30 @@ public class Ramilya extends DataBase {
                 departDate = ch.checkDate(sc);
                 System.out.println("Please enter your return date (mm-dd-yyyy)");
                 returnDate = ch.checkDate(sc);
-                while (LocalDate.parse(returnDate).isBefore(LocalDate.parse(departDate))){
+                LocalDate date1 = LocalDate.parse(departDate, formatter);
+                LocalDate date2 = LocalDate.parse(returnDate, formatter);
+                while (date2.isBefore(date1)){
                     System.out.println("Incorrect date! Please enter the valid date:");
                     returnDate = ch.checkDate(sc);
+                    date2 = LocalDate.parse(returnDate, formatter);
                 }
                 break;
             case 3:
-                for(int i =1; i<mr.numOfCities; i++){
-                    System.out.println("Please enter your"+(i) +"city departing date (mm-dd-yyyy)");
+                for(int i =1; i<=mr.numOfCities; i++){
+                    System.out.println("Please enter departing date (mm-dd-yyyy) from "+ NumToStr(i)+" city:");
                     departDate = ch.checkDate(sc);
-                    System.out.println("Please enter your"+(i) +"city return date (mm-dd-yyyy)");
-                    returnDate = ch.checkDate(sc);
-                    while (LocalDate.parse(returnDate).isBefore(LocalDate.parse(departDate))){
-                        System.out.println("Incorrect date! Please enter the valid date:");
-                        returnDate = ch.checkDate(sc);
+//                    System.out.println("Please enter your"+(i) +"city return date (mm-dd-yyyy)");
+//                    returnDate = ch.checkDate(sc);
+                    LocalDate date3 = LocalDate.parse(departDate, formatter);
+                    totalDates.add(date3);
+                    if(i!=1){
+                        while (totalDates.get(i-1).isBefore(totalDates.get(i-2))){
+                            totalDates.remove(i-1);
+                            System.out.println("Incorrect date! Please enter the valid date:");
+                            returnDate = ch.checkDate(sc);
+                            date3 = LocalDate.parse(returnDate, formatter);
+                            totalDates.add(date3);
+                        }
                     }
                 }
                 break;
@@ -91,6 +105,57 @@ public class Ramilya extends DataBase {
                 System.out.println("Incorrect input. Please try again:");
         }
 
+    }
+    public String NumToStr(int i){
+        String str ="";
+        switch (i){
+            case 1:
+                str="first";
+                break;
+            case 2:
+                str="second";
+                break;
+            case 3:
+                str="third";
+                break;
+            case 4:
+                str="fourth";
+                break;
+            case 5:
+                str="fifth";
+                break;
+            case 6:
+                str="sixth";
+                break;
+            case 7:
+                str="seventh";
+                break;
+            case 8:
+                str="eighth";
+                break;
+            case 9:
+                str="ninth";
+                break;
+            case 10:
+                str="tenth";
+                break;
+            case 11:
+                str="eleventh";
+                break;
+            case 12:
+                str="twelfth";
+                break;
+            case 13:
+                str="thirteenth";
+                break;
+            case 14:
+                str="fourteenth";
+                break;
+            case 15:
+                str="fifteenth";
+                break;
+        }
+        return str;
     }
 
 }

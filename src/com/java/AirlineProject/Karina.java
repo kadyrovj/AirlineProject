@@ -2,7 +2,7 @@ package com.java.AirlineProject;
 
 import java.util.Scanner;
 
-public class CabinClass {
+public class Karina {
     Scanner sc = new Scanner(System.in);
     String userCabinClass = checkEnteredClass(sc);
 

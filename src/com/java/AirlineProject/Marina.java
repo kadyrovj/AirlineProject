@@ -10,10 +10,10 @@ public class Marina {
     DataBase db = new DataBase();
     Scanner sc = new Scanner(System.in);
     String typeOfFlight;
-    int inputTypeOfFlight;//
-    int places[] = new int[10];
-    int numOfCities;
-    int totalMiles;
+    public static int inputTypeOfFlight;//
+    //public int places[]= new int[10];
+    public static int numOfCities;
+    public static int totalMiles;
 
     public void Welcome() {
         System.out.println("\t\t\tWelcome to Javengers Airline");
@@ -26,9 +26,14 @@ public class Marina {
             numOfCities = numberOfCities();
         }
         totalMiles=getTotalMiles();
-
+        //setTotalMiles();
     }
-////!!!!
+//    public void setTotalMiles(){
+//        this.totalMiles=getTotalMiles();
+//    }
+//    public int getMiles(){
+//        return this.totalMiles;
+//    }
     public int readerTypeOfTrip() {
         int inputNum = ch.checkInt(sc);
         while (inputNum < 1 || inputNum > 3){
@@ -37,7 +42,6 @@ public class Marina {
         }
         return inputNum;
     }
-
     public String typeOfTrip(int input) {
         String type = "";
         switch (input) {
@@ -52,11 +56,9 @@ public class Marina {
                 break;
         }
         return type;
-
     }
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public int numberOfCities() {
-        System.out.println("\nHow many cities would you like to visit?:");
+        System.out.println("\nHow many cities would you like to visit?");
         int numCities = ch.checkInt(sc);
         while (numCities<1 || numCities>15) {
             System.out.println("Incorrect input! Please enter 1-15:");
@@ -66,19 +68,15 @@ public class Marina {
     }
 
 
-
-
 //User story 2. As a user I want to be able to pick the departure and destination cities from the list by their number.
     //For example, I want to fly from Chicago to New York, so I pick corresponding numbers, like 2 and 5.
 //If it's a multi-city trip then I should not be able to choose the same number twice in a row.
 
 
     public int getTotalMiles() {
-        Scanner sc = new Scanner(System.in);
-        //db.showCities(db.getCities());
         int[][] miles = db.getMiles();
         int totalMiles = 0;
-        //int places[] = new int[10];
+        int places[] = new int[10];
         System.out.println("\nEnter the number of the city you want to depart from:");
         places[0] = ch.checkIntLess15(sc);
         if (typeOfFlight.equalsIgnoreCase("round") || typeOfFlight.equalsIgnoreCase("one-way")) {

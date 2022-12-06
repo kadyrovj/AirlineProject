@@ -38,7 +38,7 @@ public class Igor {
             totalPrice+=getWeight(maxWeight,pricePerLb);
         }
         else{
-            System.out.println("Additional charges apply. Cost per item $"+ pricePerItem);
+            System.out.println("Additional charges apply. First baggage up to "+maxWeight+" lbs for free. \nCost per each next item $"+ pricePerItem);
             for(int i=1; i<=lug; i++){
                 if(i==1){
                     totalPrice+=getWeight(maxWeight,pricePerLb);

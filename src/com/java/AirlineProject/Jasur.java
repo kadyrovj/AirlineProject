@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Jasur {
     Check ch = new Check();
+    Gentian tr = new Gentian();
     String name;
     String lastName;
     String email;
@@ -23,13 +24,14 @@ public class Jasur {
     int cvv;
     String cardHolderName;
 
-    public void confirmPurchase(int i){
-        Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
+
+    public void confirmPurchase(){
         System.out.println("\nPlease enter YES if you confirm the purchase: ");
         String result = ch.checkAnswer(sc);
         if(result.equalsIgnoreCase("yes")){
             System.out.println("\n---Please fill out the next information---");
-            numOfTravellers(i);
+            numOfTravellers(tr.numOfTravellers);
             paymentDetails();
             System.out.println("\nThank you for your purchase. Have a safe flight!");
         }else {
