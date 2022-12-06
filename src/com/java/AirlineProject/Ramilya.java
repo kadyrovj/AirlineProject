@@ -60,7 +60,7 @@ public class Ramilya extends DataBase {
     public void checkDate(int num) {
         System.out.println("\nThank you for choosing our Travel Agency. ");
         String departDate, returnDate;
-        switch (num) {
+        switch (num) {//
             case 1:
                 System.out.println("Please enter your departing date (mm-dd-yyyy)");
                 departDate = ch.checkDate(sc);

@@ -10,7 +10,7 @@ public class Gentian {
     int numOfTravellers;
     public double numberOfTravelers(double price){
 
-        Check ch = new Check();
+        Check ch = new Check();//
 
         Scanner sc = new Scanner(System.in);
 

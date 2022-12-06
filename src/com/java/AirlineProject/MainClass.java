@@ -2,7 +2,7 @@ package com.java.AirlineProject;
 
 public class MainClass {
     public static void main(String[] args) {
-        double totalPrice = 0;
+        double totalPrice = 0;//
         Marina mr = new Marina();
         Ramilya rm = new Ramilya();
         Gentian tr = new Gentian();

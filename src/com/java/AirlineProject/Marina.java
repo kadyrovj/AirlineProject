@@ -10,7 +10,7 @@ public class Marina {
     DataBase db = new DataBase();
     Scanner sc = new Scanner(System.in);
     String typeOfFlight;
-    int inputTypeOfFlight;
+    int inputTypeOfFlight;//
     int places[] = new int[10];
     int numOfCities;
     int totalMiles;

@@ -48,7 +48,7 @@ public class Igor {
                 }
             }
         }
-        return totalPrice;
+        return totalPrice;//
     }
 
     public double getWeight(double typeWeight,double typePrice){
