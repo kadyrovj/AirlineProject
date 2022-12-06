@@ -6,7 +6,7 @@ public class CabinClass {
     Scanner sc = new Scanner(System.in);
     String userCabinClass = checkEnteredClass(sc);
 
-    public String selectedCabinClass (String userCabinClass){
+    public String selectedCabinClass (String userCabinClass){ //destinations are needed to determine the ticket price
         double ticketPrice;
         double economyPrice = 0.0;
         double businessPrice = 0.3;
