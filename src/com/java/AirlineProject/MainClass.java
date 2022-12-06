@@ -19,6 +19,7 @@ public class MainClass {
             System.exit(0);
         }
         rm.checkDate();
+
         totalPrice = tr.numberOfTravelers(totalPrice);
         totalPrice = cc.selectedCabinClass(totalPrice);
         totalPrice = fl.directOrConnectingFlight(totalPrice);

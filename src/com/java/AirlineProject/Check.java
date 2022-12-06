@@ -166,10 +166,16 @@ public class Check {
     public String checkEmail(Scanner sc){
         String str = sc.nextLine();
         boolean ends = str.endsWith("@gmail.com");
-        while (!ends){
+        boolean ends1 = str.endsWith("@icloud.com");
+        boolean ends2 = str.endsWith("@yahoo.com");
+
+
+        while (!(ends || ends1 || ends2)){
             System.out.println("Incorrect input! Please enter valid email:");
             str = sc.nextLine();
             ends = str.endsWith("@gmail.com");
+            ends1 = str.endsWith("@icloud.com");
+            ends2 = str.endsWith("@yahoo.com");
         }
         return str;
     }
