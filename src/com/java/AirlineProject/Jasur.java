@@ -19,8 +19,6 @@ public class Jasur {
     long phoneNumber;
     long cardNumber;
     String expirationDate;
-    //int monthOfDate;
-    //int yearOfDate;
     int cvv;
     String cardHolderName;
 
@@ -31,7 +29,7 @@ public class Jasur {
         String result = ch.checkAnswer(sc);
         if(result.equalsIgnoreCase("yes")){
             System.out.println("\n---Please fill out the next information---");
-            numOfTravellers(tr.numOfTravellers);
+            numOfTravellers(tr.numOfTravelers);
             paymentDetails();
             System.out.println("\nThank you for your purchase. Have a safe flight!");
         }else {
@@ -46,7 +44,7 @@ public class Jasur {
         System.out.println("Please enter traveller " + i +" last name: ");
         this.lastName = ch.checkName(sc);
         System.out.println("Please enter traveller " + i + " email (example@gmail.com): ");
-        this.email = sc.nextLine();
+        this.email = ch.checkEmail(sc);
         System.out.println("Please enter traveller " + i +" phone number: ");
         this.phoneNumber = ch.checkLong(sc);
         System.out.println("Please enter traveller " + i + " date of birth (mm-dd-yyyy): ");
@@ -64,10 +62,6 @@ public class Jasur {
         this.cardHolderName = ch.checkName(sc);
         System.out.println("Please enter your card number: ");
         this.cardNumber = ch.checkCard(sc);
-        //System.out.println("Please enter expiration month of the card: "); //find a checkDate for month and year
-        //this.monthOfDate = ch.checkInt(sc);
-        //System.out.println("Please enter expiration year of the card: ");
-        //this.yearOfDate = ch.checkInt(sc);
         System.out.println("Please enter expiration date of the card: (mm/yyyy) ");
         this.expirationDate = ch.checkExpirationDate(sc);
         System.out.println("Please enter CVV: ");

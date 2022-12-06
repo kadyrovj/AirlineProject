@@ -163,4 +163,14 @@ public class Check {
         }
         return str;
     }
+    public String checkEmail(Scanner sc){
+        String str = sc.nextLine();
+        boolean ends = str.endsWith("@gmail.com");
+        while (!ends){
+            System.out.println("Incorrect input! Please enter valid email:");
+            str = sc.nextLine();
+            ends = str.endsWith("@gmail.com");
+        }
+        return str;
+    }
 }

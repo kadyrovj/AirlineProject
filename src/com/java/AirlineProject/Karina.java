@@ -3,25 +3,27 @@ package com.java.AirlineProject;
 import java.util.Scanner;
 
 public class Karina {
+    Check ch = new Check();
     Scanner sc = new Scanner(System.in);
-    String userCabinClass = checkEnteredClass(sc);
+    String userCabinClass;
 
-    public String selectedCabinClass (String userCabinClass){ //destinations are needed to determine the ticket price
-        double ticketPrice;
-        double economyPrice = 0.0;
-        double businessPrice = 0.3;
+    public double selectedCabinClass (double ticketPrice){ //destinations are needed to determine the ticket price
+        userCabinClass = checkEnteredClass(sc);
+        double economyPrice = 1.0;
+        double businessPrice = 1.3;
+        double firstClassPrice = 2.0;
 
         if (userCabinClass.equalsIgnoreCase("economy")) {
-            ticketPrice = economyPrice;
-            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + " CLASS" + ". \nYour total price is " + ticketPrice);
+            ticketPrice = ticketPrice*economyPrice;
+            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + " CLASS" + ".");
         } else if (userCabinClass.equalsIgnoreCase("business")) {
-            ticketPrice = economyPrice * businessPrice + economyPrice;
-            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + " CLASS" + ". \nYour total price is " + ticketPrice);
+            ticketPrice = ticketPrice * businessPrice;
+            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + " CLASS" + ".");
         } else if (userCabinClass.equalsIgnoreCase("first class")) {
-            ticketPrice = economyPrice * 2;
-            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + ". \nYour total price is " + ticketPrice);
+            ticketPrice = ticketPrice * firstClassPrice;
+            System.out.println("Thank you for choosing " + userCabinClass.toUpperCase() + ".");
         }
-        return userCabinClass;
+        return ticketPrice;
     }
 
     public boolean wrongClass(String userCabinClass){
@@ -33,11 +35,11 @@ public class Karina {
         }
     }
     public String checkEnteredClass(Scanner sc){
-        System.out.println("Please choose a type of cabin class.");
+        System.out.println("\nPlease choose a type of cabin class:");
         System.out.println("Enter one of the following: Economy, Business, or First Class.");
-        String userCabinClass = sc.nextLine();
+        String userCabinClass = ch.checkName(sc);
         while(!wrongClass(userCabinClass)) {
-            userCabinClass=sc.nextLine();
+            userCabinClass=ch.checkName(sc);
         }
         return userCabinClass;
     }
