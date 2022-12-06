@@ -24,24 +24,24 @@ public class Igor {
 
         System.out.println("\nEnter the number of carry-on items: ");
         this.carryOn = ch.checkInt(sc);
-        totalPrice=numberOfLug(carryOn,totalPrice,carryOnMaxWeight,carryOnPricePerlb,carryOnPricePerItem);
+        totalPrice=numberOfLug(carryOn,totalPrice,carryOnMaxWeight,carryOnPricePerlb,carryOnPricePerItem,"carry-on");
 
         System.out.println("\nEnter the number of checked items: ");
         this.luggage = ch.checkInt(sc);
-        totalPrice=numberOfLug(luggage,totalPrice,luggageMaxWeight,luggagePricePerlb,luggagePricePerItem);
+        totalPrice=numberOfLug(luggage,totalPrice,luggageMaxWeight,luggagePricePerlb,luggagePricePerItem, "checked");
         return totalPrice;
     }
-    public double numberOfLug(int lug,double totalPrice,int maxWeight, double pricePerLb, double pricePerItem){
+    public double numberOfLug(int lug,double totalPrice,int maxWeight, double pricePerLb, double pricePerItem,String type){
         if(lug==0){
         }
         else if(lug==1){
-            totalPrice+=getWeight(maxWeight,pricePerLb);
+            totalPrice+=getWeight(maxWeight,pricePerLb,type);
         }
         else{
-            System.out.println("Additional charges apply. First baggage up to "+maxWeight+" lbs for free. \nCost per each next item $"+ pricePerItem);
+            System.out.println("Additional charges apply. First luggage up to "+maxWeight+" lbs for free. \nCost per each next item $"+ pricePerItem);
             for(int i=1; i<=lug; i++){
                 if(i==1){
-                    totalPrice+=getWeight(maxWeight,pricePerLb);
+                    totalPrice+=getWeight(maxWeight,pricePerLb,type);
                 }
                 else{
                     totalPrice+=pricePerItem;
@@ -51,9 +51,9 @@ public class Igor {
         return totalPrice;//
     }
 
-    public double getWeight(double typeWeight,double typePrice){
+    public double getWeight(double typeWeight,double typePrice, String type){
         double price =0;
-        System.out.println("Enter the weight of your first luggage (lbs):");
+        System.out.println("Enter the weight of your first "+type+" luggage (lbs):");
         double weight = ch.checkDouble(sc);
         if(weight>typeWeight){
             System.out.println("Your luggage is overweight. Additional charges apply.");
