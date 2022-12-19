@@ -168,14 +168,25 @@ public class Check {
         boolean ends = str.endsWith("@gmail.com");
         boolean ends1 = str.endsWith("@icloud.com");
         boolean ends2 = str.endsWith("@yahoo.com");
+        boolean ends3 = str.endsWith("@hotmail.com");
+        boolean ends4 = str.endsWith("@mail.ru");
+        boolean ends5 = str.endsWith("@yandex.ru");
 
 
-        while (!(ends || ends1 || ends2)){
+
+
+
+        while (!(ends || ends1 || ends2 || ends3 || ends4 || ends5 )){
             System.out.println("Incorrect input! Please enter valid email:");
             str = sc.nextLine();
             ends = str.endsWith("@gmail.com");
             ends1 = str.endsWith("@icloud.com");
             ends2 = str.endsWith("@yahoo.com");
+            ends3 = str.endsWith("@hotmail.com");
+            ends4 = str.endsWith("@mail.ru");
+            ends5 = str.endsWith("@yandex.ru");
+
+
         }
         return str;
     }
