@@ -61,19 +61,19 @@ public class Ramilya extends DataBase {
     public void checkDate() {
         System.out.println("\nThank you for choosing our Travel Agency. ");
         String departDate, returnDate;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.ENGLISH);
         switch (mr.inputTypeOfFlight) {
             case 1:
-                System.out.println("\nPlease enter your departing date (mm-dd-yyyy)");
-                departDate = ch.checkDate(sc);
+                System.out.println("\nPlease enter your departing date (mm/dd/yyyy)");
+                departDate = ch.checkFlightDate(sc);
                 LocalDate date = LocalDate.parse(departDate, formatter);
                 totalDates.add(date);
                 break;
             case 2:
-                System.out.println("Please enter your departing date (mm-dd-yyyy)");
-                departDate = ch.checkDate(sc);
-                System.out.println("Please enter your return date (mm-dd-yyyy)");
-                returnDate = ch.checkDate(sc);
+                System.out.println("Please enter your departing date (mm/dd/yyyy)");
+                departDate = ch.checkFlightDate(sc);
+                System.out.println("Please enter your return date (mm/dd/yyyy)");
+                returnDate = ch.checkFlightDate(sc);
                 LocalDate date1 = LocalDate.parse(departDate, formatter);
                 LocalDate date2 = LocalDate.parse(returnDate, formatter);
                 totalDates.add(date1);
@@ -81,7 +81,7 @@ public class Ramilya extends DataBase {
                 while (date2.isBefore(date1)){
                     totalDates.remove(1);
                     System.out.println("Incorrect date! Please enter the valid date:");
-                    returnDate = ch.checkDate(sc);
+                    returnDate = ch.checkFlightDate(sc);
                     date2 = LocalDate.parse(returnDate, formatter);
                     totalDates.add(date2);
                 }
@@ -89,14 +89,14 @@ public class Ramilya extends DataBase {
             case 3:
                 for(int i =1; i<=mr.numOfCities; i++){
                     System.out.println("Please enter departing date (mm-dd-yyyy) from "+ NumToStr(i)+" city:");
-                    departDate = ch.checkDate(sc);
+                    departDate = ch.checkFlightDate(sc);
                     LocalDate date3 = LocalDate.parse(departDate, formatter);
                     totalDates.add(date3);
                     if(i!=1){
                         while (totalDates.get(i-1).isBefore(totalDates.get(i-2))){
                             totalDates.remove(i-1);
                             System.out.println("Incorrect date! Please enter the valid date:");
-                            returnDate = ch.checkDate(sc);
+                            returnDate = ch.checkFlightDate(sc);
                             date3 = LocalDate.parse(returnDate, formatter);
                             totalDates.add(date3);
                         }

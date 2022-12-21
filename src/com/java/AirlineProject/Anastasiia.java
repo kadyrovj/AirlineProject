@@ -20,7 +20,7 @@ public class Anastasiia {
             System.out.printf("\n%-32s %-32s","Type of flight:",typeOfFlight);
             System.out.printf("\n%-32s %-32s","You added following baggage:",carryOn +" carry-on items; "+checked +" checked items");
             System.out.printf("\n%-32s %-32s","Total price of tickets = $", totalPrice);
-            System.out.println("\n\n************************************************************************");
+            System.out.println("\n************************************************************************");
 
         }
         

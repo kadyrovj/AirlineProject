@@ -4,6 +4,8 @@ package com.java.AirlineProject;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Check {
@@ -128,7 +130,7 @@ public class Check {
     public boolean isDateValid(String date)
     {
         try {
-            DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
             df.setLenient(false);
             df.parse(date);
             return true;
@@ -136,10 +138,45 @@ public class Check {
             return false;
         }
     }
-    public String checkDate(Scanner sc){
+    public boolean isFlightDateCorrect(String date){
+            try{
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                Date datenow = new Date();
+                String datenowstring = df.format(datenow);
+                df.setLenient(false);
+                return df.parse(date).after(df.parse(datenowstring));
+            }catch (ParseException e) {
+                return false;
+            }
+    }
+    public String checkFlightDate(Scanner sc){
         String str = sc.nextLine();
-        while(!isDateValid(str)){
-            System.out.println("Incorrect input. Please enter the date in format mm-dd-yyyy");
+        while(!isDateValid(str) || !isFlightDateCorrect(str)){
+            System.out.println("Incorrect input. Please enter the date in format mm/dd/yyyy");
+            str = sc.nextLine();
+        }
+        return str;
+    }
+    public boolean isBirthDateCorrect(String date){
+        try{
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            Date datenow = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(datenow);
+            c.add(Calendar.YEAR,-100);
+            Date maxdate=c.getTime();
+            String datenowstring = df.format(datenow);
+            String maxdatestring = df.format(maxdate);
+            df.setLenient(false);
+            return df.parse(date).after(df.parse(maxdatestring)) && df.parse(date).before(df.parse(datenowstring));
+        }catch (ParseException e) {
+            return false;
+        }
+    }
+    public String checkBirthDate(Scanner sc){
+        String str = sc.nextLine();
+        while(!isDateValid(str) || !isBirthDateCorrect(str)){
+            System.out.println("Incorrect input. Please enter the date in format mm/dd/yyyy");
             str = sc.nextLine();
         }
         return str;
@@ -155,9 +192,26 @@ public class Check {
             return false;
         }
     }
+    public boolean isShortDateCorrect(String date){
+        try{
+            DateFormat df = new SimpleDateFormat("MM/yyyy");
+            Date datenow = new Date();
+            String datenowstring = df.format(datenow);
+            df.setLenient(false);
+            if(df.parse(date).after(df.parse(datenowstring))){
+                return true;
+            }
+            else{
+                System.out.println("Expired card!");
+                return false;
+            }
+        }catch (ParseException e) {
+            return false;
+        }
+    }
     public String checkExpirationDate(Scanner sc){
         String str = sc.nextLine();
-        while(!isShortDateValid(str)){
+        while(!isShortDateValid(str) || !isShortDateCorrect(str)){
             System.out.println("Incorrect input. Please enter the date in format mm/yyyy");
             str = sc.nextLine();
         }
@@ -172,10 +226,6 @@ public class Check {
         boolean ends4 = str.endsWith("@mail.ru");
         boolean ends5 = str.endsWith("@yandex.ru");
 
-
-
-
-
         while (!(ends || ends1 || ends2 || ends3 || ends4 || ends5 )){
             System.out.println("Incorrect input! Please enter valid email:");
             str = sc.nextLine();
@@ -189,5 +239,21 @@ public class Check {
 
         }
         return str;
+    }
+    public boolean checkAdult(String DOB){
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            Date datenow = new Date();
+            Calendar c = Calendar.getInstance();
+            c.setTime(datenow);
+            c.add(Calendar.YEAR,-18);
+            datenow=c.getTime();
+            String datenowstring = df.format(datenow);
+            df.setLenient(false);
+            try{
+                return df.parse(DOB).before(df.parse(datenowstring));
+            }
+            catch (ParseException e){
+                return false;
+            }
     }
 }

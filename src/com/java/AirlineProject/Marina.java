@@ -12,8 +12,7 @@ public class Marina {
     DataBase db = new DataBase();
     Scanner sc = new Scanner(System.in);
     String typeOfFlight;
-    public static int inputTypeOfFlight;//
-    //public int places[]= new int[10];
+    public static int inputTypeOfFlight;
     public static int numOfCities;
     public static int totalMiles;
     public List<String> totalCities= new ArrayList<>();
@@ -75,18 +74,15 @@ public class Marina {
         int places[] = new int[10];
         System.out.println("\nEnter the number of the city you want to depart from:");
         places[0] = ch.checkIntLess15(sc);
-        //totalCities.add(db.getCities()[places[0]-1]);
         sub(places[0]);
         if (typeOfFlight.equalsIgnoreCase("round") || typeOfFlight.equalsIgnoreCase("one-way")) {
             System.out.println("Enter the number of the destination city:");
             places[1] = ch.checkIntLess15(sc);
-            //totalCities.add(db.getCities()[places[1]-1]);
             sub(places[1]);
             while (places[0] == places[1]) {
                 totalCities.remove(1);
                 System.out.println("Incorrect input! Please enter the number of the destination city again:");
                 places[1] = ch.checkIntLess15(sc);
-                //totalCities.add(db.getCities()[places[1]-1]);
                 sub(places[1]);
             }
             totalMiles = miles[places[0] - 1][places[1]];
@@ -95,18 +91,11 @@ public class Marina {
                 System.out.println("Enter the number of the destination city:");
                 places[k] = ch.checkIntLess15(sc);
                 sub(places[k]);
-//                if(places[k]<10){
-//                    totalCities.add(db.getCities()[places[k]-1].substring(2));
-//                }
-//                else{
-//                    totalCities.add(db.getCities()[places[k]-1].substring(3));
-//                }
                 while (places[k] == places[k - 1]) {
                     totalCities.remove(k);
                     System.out.println("Incorrect input! Please enter the number of the destination city again:");
                     places[k] = ch.checkIntLess15(sc);
                     sub(places[k]);
-                    //totalCities.add(db.getCities()[places[k]-1]);
                 }
                 totalMiles = totalMiles + miles[places[k - 1] - 1][places[k]];
             }

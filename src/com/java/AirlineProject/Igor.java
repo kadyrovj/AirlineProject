@@ -31,7 +31,7 @@ public class Igor {
         totalPrice=numberOfLug(luggage,totalPrice,luggageMaxWeight,luggagePricePerlb,luggagePricePerItem, "checked");
         return totalPrice;
     }
-    public double numberOfLug(int lug,double totalPrice,int maxWeight, double pricePerLb, double pricePerItem,String type){
+    public double numberOfLug(int lug,double totalPrice, int maxWeight, double pricePerLb, double pricePerItem, String type){
         if(lug==0){
         }
         else if(lug==1){
@@ -48,7 +48,7 @@ public class Igor {
                 }
             }
         }
-        return totalPrice;//
+        return totalPrice;
     }
 
     public double getWeight(double typeWeight,double typePrice, String type){

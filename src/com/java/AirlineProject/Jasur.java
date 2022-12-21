@@ -21,6 +21,7 @@ public class Jasur {
     String expirationDate;
     int cvv;
     String cardHolderName;
+    //int countadult;
 
     Scanner sc = new Scanner(System.in);
 
@@ -47,16 +48,22 @@ public class Jasur {
         this.email = ch.checkEmail(sc);
         System.out.println("Please enter traveller " + i +" phone number: ");
         this.phoneNumber = ch.checkLong(sc);
-        System.out.println("Please enter traveller " + i + " date of birth (mm-dd-yyyy): ");
-        this.DOB = ch.checkDate(sc);
-
+        System.out.println("Please enter traveller " + i + " date of birth (mm/dd/yyyy): ");
+        this.DOB = ch.checkBirthDate(sc);
+//        if(ch.checkAdult(DOB)){
+//            countadult++;
+//        }
     }
     public void numOfTravellers(int num){
         for(int i=1; i<= num;i++){
             Airline(i);
         }
+//        if(tr.adultcount>0 && countadult<0){
+//            System.out.println("Must be at least one adult!");
+//        }
     }
     public void paymentDetails(){
+        System.out.println("\n---Please enter payment details---");
         Scanner sc = new Scanner(System.in);
         System.out.println("\nPlease enter cardholder's full name: ");
         this.cardHolderName = ch.checkName(sc);
